@@ -1,0 +1,999 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Iskandar Salama | AI, Blockchain & Social Impact Engineer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta
+    name="description"
+    content="Portfolio of Iskandar Salama – Syrian-born engineer in Japan working on AI, blockchain, and tech-driven opportunities for displaced people."
+  />
+
+  <style>
+    :root {
+      --bg: #050816;
+      --bg-alt: #0b1020;
+      --card: #111827;
+      --accent: #38bdf8;
+      --accent-soft: rgba(56, 189, 248, 0.15);
+      --accent-strong: rgba(56, 189, 248, 0.35);
+      --text: #e5e7eb;
+      --muted: #9ca3af;
+      --border-subtle: rgba(148, 163, 184, 0.25);
+      --radius-lg: 18px;
+      --radius-pill: 999px;
+      --shadow-soft: 0 18px 45px rgba(15, 23, 42, 0.8);
+      --shadow-subtle: 0 10px 30px rgba(15, 23, 42, 0.55);
+      --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
+        "Segoe UI", sans-serif;
+      --max-w: 1080px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      background: radial-gradient(circle at top, #111827 0, #020617 55%, #000 100%);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    main {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 28px 20px 60px;
+    }
+
+    header,
+    section {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Subtle gradient halo behind main content */
+    main::before {
+      content: "";
+      position: fixed;
+      inset: auto auto 10% 50%;
+      width: 480px;
+      height: 480px;
+      transform: translateX(-50%);
+      background: radial-gradient(circle, rgba(56, 189, 248, 0.12), transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* Top navigation */
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      margin-bottom: 32px;
+    }
+
+    .nav__brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .brand__avatar {
+      width: 32px;
+      height: 32px;
+      border-radius: 12px;
+      border: 1px solid var(--accent-strong);
+      background: radial-gradient(circle at 30% 20%, #38bdf8, #0f172a);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 0.9rem;
+      color: #e0f2fe;
+      box-shadow: 0 0 0 1px rgba(15, 23, 42, 0.9);
+    }
+
+    .brand__text {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .brand__name {
+      font-weight: 600;
+      font-size: 0.9rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .brand__tagline {
+      font-size: 0.75rem;
+      color: var(--muted);
+    }
+
+    .nav__links {
+      display: flex;
+      gap: 12px;
+      font-size: 0.82rem;
+      color: var(--muted);
+      flex-wrap: wrap;
+    }
+
+    .nav__links a {
+      padding: 6px 12px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      transition: border 0.15s ease, background 0.15s ease, color 0.15s ease;
+      cursor: pointer;
+    }
+
+    .nav__links a:hover {
+      border-color: var(--accent-strong);
+      background: rgba(15, 23, 42, 0.9);
+      color: var(--text);
+    }
+
+    /* Hero section */
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(220px, 1fr);
+      gap: 32px;
+      margin-bottom: 42px;
+    }
+
+    .hero__intro {
+      background: linear-gradient(135deg, rgba(15, 23, 42, 0.9), #020617);
+      border-radius: 24px;
+      padding: 22px 22px 20px;
+      box-shadow: var(--shadow-soft);
+      border: 1px solid rgba(51, 65, 85, 0.8);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero__intro::before {
+      content: "";
+      position: absolute;
+      inset: -60px;
+      background-image: radial-gradient(
+          circle at 0 0,
+          rgba(56, 189, 248, 0.12),
+          transparent 60%
+        ),
+        radial-gradient(
+          circle at 100% 0,
+          rgba(45, 212, 191, 0.12),
+          transparent 55%
+        );
+      opacity: 0.8;
+      pointer-events: none;
+    }
+
+    .hero__tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 4px 12px;
+      border-radius: var(--radius-pill);
+      border: 1px solid var(--accent-strong);
+      background: rgba(15, 23, 42, 0.9);
+      font-size: 0.75rem;
+      color: var(--muted);
+      margin-bottom: 10px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero__tag-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: #4ade80;
+      box-shadow: 0 0 0 5px rgba(74, 222, 128, 0.18);
+    }
+
+    .hero__title {
+      font-size: clamp(1.7rem, 2.3vw + 1.1rem, 2.35rem);
+      letter-spacing: -0.03em;
+      margin-bottom: 10px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero__subtitle {
+      font-size: 0.9rem;
+      color: var(--muted);
+      max-width: 620px;
+      margin-bottom: 16px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero__actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      position: relative;
+      z-index: 1;
+      margin-bottom: 8px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 8px 16px;
+      border-radius: var(--radius-pill);
+      border: 1px solid transparent;
+      cursor: pointer;
+      font-size: 0.82rem;
+      font-weight: 500;
+      transition: transform 0.15s ease, box-shadow 0.15s ease,
+        background 0.15s ease, border-color 0.15s ease;
+    }
+
+    .btn--primary {
+      background: linear-gradient(135deg, #38bdf8, #22c55e);
+      color: #0b1120;
+      box-shadow: 0 12px 30px rgba(56, 189, 248, 0.35);
+    }
+
+    .btn--primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 18px 40px rgba(56, 189, 248, 0.45);
+    }
+
+    .btn--ghost {
+      border-color: rgba(148, 163, 184, 0.5);
+      background: rgba(15, 23, 42, 0.85);
+      color: var(--muted);
+    }
+
+    .btn--ghost:hover {
+      border-color: var(--accent-strong);
+      background: rgba(15, 23, 42, 0.95);
+      color: var(--text);
+      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.7);
+    }
+
+    .hero__meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      font-size: 0.78rem;
+      color: var(--muted);
+      margin-top: 6px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero__meta-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .hero__meta-badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 3px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(56, 189, 248, 0.25);
+      background: rgba(15, 23, 42, 0.9);
+      font-size: 0.75rem;
+      color: #bae6fd;
+    }
+
+    .hero__side {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .hero__card {
+      background: radial-gradient(circle at top, #020617, #020617 55%, #000 100%);
+      border-radius: 22px;
+      padding: 18px 18px 16px;
+      border: 1px solid rgba(31, 41, 55, 0.9);
+      box-shadow: var(--shadow-subtle);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero__card-title {
+      font-size: 0.78rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+
+    .hero__headline {
+      font-size: 0.98rem;
+      font-weight: 500;
+      margin-bottom: 6px;
+    }
+
+    .hero__caption {
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+
+    .hero__media-logos {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 6px;
+    }
+
+    .hero__logo-pill {
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(75, 85, 99, 0.8);
+      font-size: 0.75rem;
+      color: var(--muted);
+      background: rgba(15, 23, 42, 0.85);
+    }
+
+    .hero__wallet {
+      display: inline-flex;
+      margin-top: 4px;
+      padding: 5px 9px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px dashed rgba(148, 163, 184, 0.6);
+      font-size: 0.75rem;
+      color: var(--muted);
+    }
+
+    .hero__wallet code {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+        "Liberation Mono", "Courier New", monospace;
+      font-size: 0.72rem;
+      word-break: break-all;
+      color: #e5e7eb;
+    }
+
+    /* Section titles */
+    .section-header {
+      margin: 40px 0 14px;
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .section-header__title {
+      font-size: 1rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .section-header__subtitle {
+      font-size: 0.82rem;
+      color: var(--muted);
+    }
+
+    /* Timeline */
+    .timeline {
+      display: grid;
+      grid-template-columns: minmax(0, 1.6fr) minmax(0, 1.4fr);
+      gap: 20px;
+      align-items: flex-start;
+    }
+
+    .timeline__list {
+      position: relative;
+      padding-left: 18px;
+    }
+
+    .timeline__line {
+      content: "";
+      position: absolute;
+      left: 6px;
+      top: 4px;
+      bottom: 4px;
+      width: 1px;
+      background: linear-gradient(
+        to bottom,
+        rgba(148, 163, 184, 0.7),
+        rgba(148, 163, 184, 0.2)
+      );
+    }
+
+    .timeline-item {
+      position: relative;
+      padding-left: 14px;
+      margin-bottom: 14px;
+    }
+
+    .timeline-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .timeline-item__dot {
+      position: absolute;
+      left: -4px;
+      top: 6px;
+      width: 9px;
+      height: 9px;
+      border-radius: 999px;
+      border: 1px solid rgba(15, 23, 42, 0.9);
+      background: radial-gradient(circle, #38bdf8, #22c55e);
+      box-shadow: 0 0 0 5px rgba(56, 189, 248, 0.16);
+    }
+
+    .timeline-item__year {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--muted);
+      margin-bottom: 1px;
+    }
+
+    .timeline-item__title {
+      font-size: 0.95rem;
+      font-weight: 500;
+      margin-bottom: 2px;
+    }
+
+    .timeline-item__body {
+      font-size: 0.84rem;
+      color: var(--muted);
+    }
+
+    .timeline__summary-card {
+      background: rgba(15, 23, 42, 0.92);
+      border-radius: var(--radius-lg);
+      padding: 16px 16px 14px;
+      border: 1px solid var(--border-subtle);
+      box-shadow: var(--shadow-subtle);
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    .timeline__summary-card strong {
+      color: var(--text);
+    }
+
+    .timeline__tags {
+      margin-top: 8px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      font-size: 0.75rem;
+    }
+
+    .tag {
+      padding: 3px 9px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.45);
+      color: var(--muted);
+    }
+
+    /* Projects / focus grid */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .card {
+      background: rgba(15, 23, 42, 0.96);
+      border-radius: var(--radius-lg);
+      padding: 16px 15px 15px;
+      border: 1px solid var(--border-subtle);
+      box-shadow: var(--shadow-subtle);
+      font-size: 0.86rem;
+    }
+
+    .card__eyebrow {
+      font-size: 0.78rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+
+    .card__title {
+      font-size: 0.96rem;
+      font-weight: 500;
+      margin-bottom: 6px;
+    }
+
+    .card__body {
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+
+    .card__meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      font-size: 0.75rem;
+      color: var(--muted);
+    }
+
+    /* Donations section */
+    .support {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.6fr);
+      gap: 18px;
+      align-items: flex-start;
+    }
+
+    .support__blurb {
+      background: radial-gradient(circle at top left, #0f172a, #020617);
+      border-radius: var(--radius-lg);
+      padding: 16px 16px 14px;
+      border: 1px solid rgba(37, 99, 235, 0.5);
+      box-shadow: var(--shadow-soft);
+      font-size: 0.86rem;
+      color: var(--muted);
+    }
+
+    .support__blurb strong {
+      color: var(--text);
+    }
+
+    .support__cta {
+      margin-top: 12px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .support__steps {
+      font-size: 0.8rem;
+      color: var(--muted);
+      border-radius: var(--radius-lg);
+      border: 1px dashed rgba(148, 163, 184, 0.8);
+      padding: 12px 13px;
+      background: rgba(15, 23, 42, 0.95);
+    }
+
+    .support__steps ul {
+      margin-top: 6px;
+      padding-left: 16px;
+    }
+
+    .support__steps li {
+      margin-bottom: 4px;
+    }
+
+    /* Contact / footer */
+    .contact {
+      margin-top: 40px;
+      padding-top: 18px;
+      border-top: 1px solid rgba(31, 41, 55, 0.9);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      justify-content: space-between;
+      align-items: flex-start;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    .contact__links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .contact__pill {
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      background: rgba(15, 23, 42, 0.9);
+    }
+
+    .contact__note {
+      max-width: 360px;
+    }
+
+    .contact__note strong {
+      color: var(--text);
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 840px) {
+      .hero {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .timeline {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .support {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    @media (max-width: 720px) {
+      main {
+        padding-inline: 16px;
+      }
+
+      .grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .nav {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .hero__intro {
+        padding: 18px 16px 15px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero__title {
+        font-size: 1.6rem;
+      }
+
+      .nav__links {
+        font-size: 0.78rem;
+      }
+    }
+  </style>
+
+  <script>
+    // Simple smooth-scrolling for in-page links
+    window.addEventListener("DOMContentLoaded", () => {
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          const targetId = this.getAttribute("href");
+          if (!targetId || targetId === "#") return;
+          const target = document.querySelector(targetId);
+          if (!target) return;
+          e.preventDefault();
+          target.scrollIntoView({ behavior: "smooth", block: "start" });
+        });
+      });
+    });
+  </script>
+</head>
+
+<body>
+  <main>
+    <!-- NAV -->
+    <nav class="nav">
+      <div class="nav__brand">
+        <div class="brand__avatar">IS</div>
+        <div class="brand__text">
+          <div class="brand__name">Iskandar&nbsp;Salama</div>
+          <div class="brand__tagline">AI, Blockchain & Social Impact Engineer</div>
+        </div>
+      </div>
+      <div class="nav__links">
+        <a href="#timeline">Timeline</a>
+        <a href="#focus">Work & Focus</a>
+        <a href="#support">Blockchain Donations</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+
+    <!-- HERO -->
+    <header class="hero" id="top">
+      <div class="hero__intro">
+        <div class="hero__tag">
+          <span class="hero__tag-dot"></span>
+          <span>From Damascus to Tokyo · Building Bridges in Code</span>
+        </div>
+
+        <h1 class="hero__title">
+          Engineer using <span style="color: #7dd3fc;">AI</span> &amp;
+          <span style="color: #6ee7b7;">blockchain</span> to create opportunities for displaced people.
+        </h1>
+
+        <p class="hero__subtitle">
+          Iskandar Salama is a Syrian-born engineer based in Japan. Through AI-driven systems,
+          blockchain-powered transparency, and remote tech teams, he connects Japanese companies with
+          Syrian and Middle Eastern talent while expanding real work opportunities for refugees and evacuees.
+        </p>
+
+        <div class="hero__actions">
+          <a href="#support" class="btn btn--primary">
+            Support via Blockchain
+            <span aria-hidden="true">↗</span>
+          </a>
+          <a href="#timeline" class="btn btn--ghost">View Story & Timeline</a>
+        </div>
+
+        <div class="hero__meta">
+          <div class="hero__meta-item">
+            <span class="hero__meta-badge">Based in Tokyo</span>
+          </div>
+          <div class="hero__meta-item">
+            <span>JICA&nbsp;JISR Scholar · Soka University (M.Eng.)</span>
+          </div>
+          <div class="hero__meta-item">
+            <span>AI, voice tech, and social impact systems</span>
+          </div>
+        </div>
+      </div>
+
+      <aside class="hero__side">
+        <div class="hero__card">
+          <div class="hero__card-title">In the media</div>
+          <div class="hero__headline">
+            Featured for work linking Japan’s tech sector with Syrian engineers and evacuees.
+          </div>
+          <div class="hero__caption">
+            Coverage includes stories on AI projects, job creation for Syrian evacuees in Japan, and post-earthquake
+            support for communities back home.
+          </div>
+          <div class="hero__media-logos">
+            <span class="hero__logo-pill">NHK World</span>
+            <span class="hero__logo-pill">Fuji TV</span>
+            <span class="hero__logo-pill">Mainichi</span>
+            <span class="hero__logo-pill">Nippon.com</span>
+            <span class="hero__logo-pill">Arab News Japan</span>
+          </div>
+        </div>
+
+        <div class="hero__card">
+          <div class="hero__card-title">Blockchain-enabled support</div>
+          <div class="hero__headline">
+            Transparent, borderless ways to back Syrian engineers and refugee-led projects.
+          </div>
+          <div class="hero__caption">
+            Iskandar is enthusiastic about using blockchain to route support efficiently:
+            from direct micro-payments to engineers to fully auditable donation streams
+            funding training and work opportunities.
+          </div>
+          <div class="hero__wallet">
+            <span style="margin-right: 4px;">Example wallet (placeholder):</span>
+            <code>0xYourWalletAddressHereForDonations</code>
+          </div>
+        </div>
+      </aside>
+    </header>
+
+    <!-- TIMELINE -->
+    <section id="timeline">
+      <div class="section-header">
+        <h2 class="section-header__title">Timeline</h2>
+        <p class="section-header__subtitle">
+          From Damascus University to JISR scholar, AI research, and social-impact engineering in Japan.
+        </p>
+      </div>
+
+      <div class="timeline">
+        <div class="timeline__list">
+          <div class="timeline__line"></div>
+
+          <article class="timeline-item">
+            <div class="timeline-item__dot"></div>
+            <div class="timeline-item__year">2024 &amp; beyond</div>
+            <h3 class="timeline-item__title">AI, blockchain & work opportunities for evacuees</h3>
+            <p class="timeline-item__body">
+              Expands projects in Japan that train and employ Syrian and other evacuees in AI and data-related work.
+              Explores blockchain to make funding streams transparent and to channel global donations directly to
+              engineers and refugee-led initiatives.
+            </p>
+          </article>
+
+          <article class="timeline-item">
+            <div class="timeline-item__dot"></div>
+            <div class="timeline-item__year">2020&nbsp;–&nbsp;Present</div>
+            <h3 class="timeline-item__title">Senior technologist at Tokyo-based BonZuttner</h3>
+            <p class="timeline-item__body">
+              Leads engineering projects that connect Japanese companies with Syrian and Middle Eastern developers.
+              Builds remote teams, mentors young engineers, and designs systems where refugees are seen not as victims,
+              but as highly skilled professionals.
+            </p>
+          </article>
+
+          <article class="timeline-item">
+            <div class="timeline-item__dot"></div>
+            <div class="timeline-item__year">2018&nbsp;–&nbsp;2020</div>
+            <h3 class="timeline-item__title">Graduate study & AI research in Japan</h3>
+            <p class="timeline-item__body">
+              Comes to Japan via JICA’s Japanese Initiative for the Future of Syrian Refugees (JISR) program and
+              completes a master’s degree in engineering at Soka University, researching machine learning and
+              voice-conversion technologies.
+            </p>
+          </article>
+
+          <article class="timeline-item">
+            <div class="timeline-item__dot"></div>
+            <div class="timeline-item__year">Before 2018</div>
+            <h3 class="timeline-item__title">Web engineer & educator in Syria</h3>
+            <p class="timeline-item__body">
+              Studies computer science at Damascus University and later works there as a web engineer and adjunct
+              faculty member. During the Syrian conflict, relocates to Lebanon and continues building technical and
+              teaching experience.
+            </p>
+          </article>
+        </div>
+
+        <aside class="timeline__summary-card">
+          <p>
+            <strong>Short bio</strong><br />
+            Iskandar Salama is a Syrian-born engineer who came to Japan through JICA’s JISR scholarship program,
+            completed a master’s degree in engineering at Soka University, and now works as a senior technologist at a
+            Tokyo-based company. Enthusiastic about AI and blockchain, he uses technology to connect Japanese firms with
+            Syrian and Middle Eastern engineers, design transparent donation flows, and create new work opportunities
+            for displaced people.
+          </p>
+          <div class="timeline__tags">
+            <span class="tag">JICA JISR alumnus</span>
+            <span class="tag">AI &amp; ML</span>
+            <span class="tag">Blockchain for good</span>
+            <span class="tag">Remote engineering teams</span>
+            <span class="tag">Japan ↔ Syria bridge</span>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- WORK & FOCUS -->
+    <section id="focus">
+      <div class="section-header">
+        <h2 class="section-header__title">Work & Focus</h2>
+        <p class="section-header__subtitle">
+          Where engineering, research, and social impact meet.
+        </p>
+      </div>
+
+      <div class="grid">
+        <article class="card">
+          <div class="card__eyebrow">AI & Voice Technology</div>
+          <h3 class="card__title">Machine learning with a human-centered goal</h3>
+          <p class="card__body">
+            Research in machine learning and voice conversion, shaped by a simple question:
+            how can these tools widen access, communication, and opportunity for people whose
+            lives have been disrupted by conflict and displacement?
+          </p>
+          <div class="card__meta">
+            <span>Speech &amp; audio learning</span>
+            <span>Accessibility</span>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card__eyebrow">Blockchain & Transparency</div>
+          <h3 class="card__title">Trustworthy rails for support and income</h3>
+          <p class="card__body">
+            Experiments with blockchain-based donation rails and payout mechanisms that keep
+            fees low, trace every transaction, and help funds reach Syrian engineers, evacuees,
+            and community projects with maximum clarity and accountability.
+          </p>
+          <div class="card__meta">
+            <span>On-chain auditability</span>
+            <span>Direct micro-payments</span>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card__eyebrow">Tech Bridges</div>
+          <h3 class="card__title">Japan ↔ Middle East engineering pipelines</h3>
+          <p class="card__body">
+            Designs remote teams where Japanese companies collaborate with Syrian and Middle Eastern developers.
+            Focus on mentorship, stable income, and long-term relationships rather than short-term outsourcing.
+          </p>
+          <div class="card__meta">
+            <span>Remote-first teams</span>
+            <span>Talent development</span>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card__eyebrow">Community & Reconstruction</div>
+          <h3 class="card__title">Beyond code: people & future cities</h3>
+          <p class="card__body">
+            Involved in efforts that support communities affected by the Syrian conflict and earthquakes,
+            from housing projects to training programs. Long-term vision: help bring back skills, capital,
+            and experience to rebuild Syria’s future.
+          </p>
+          <div class="card__meta">
+            <span>Post-crisis rebuilding</span>
+            <span>Education &amp; skills</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- BLOCKCHAIN SUPPORT / DONATIONS -->
+    <section id="support">
+      <div class="section-header">
+        <h2 class="section-header__title">Blockchain Donations</h2>
+        <p class="section-header__subtitle">
+          Exploring fast, transparent ways to support refugee engineers and projects.
+        </p>
+      </div>
+
+      <div class="support">
+        <article class="support__blurb">
+          <p>
+            <strong>Why blockchain?</strong><br />
+            Traditional funding routes for refugees and displaced professionals can be slow, expensive,
+            and opaque. By using blockchain, Iskandar is enthusiastic about building support channels
+            that are:
+          </p>
+          <ul style="margin-top: 8px; padding-left: 18px;">
+            <li>Borderless – sending funds directly to engineers and community projects.</li>
+            <li>Transparent – anyone can verify how much was sent, where, and when.</li>
+            <li>Composable – easily integrated with training platforms and remote work systems.</li>
+          </ul>
+          <p style="margin-top: 10px;">
+            The goal is not speculation, but <strong>stability and dignity</strong>: ensuring that refugee
+            professionals and evacuees can get paid reliably for their work and receive support for
+            training, equipment, and project costs.
+          </p>
+
+          <div class="support__cta">
+            <button class="btn btn--primary" type="button">
+              View Donation Instructions
+            </button>
+            <button class="btn btn--ghost" type="button">
+              Request a Project Proposal
+            </button>
+          </div>
+        </article>
+
+        <aside class="support__steps">
+          <strong>Example donation flow (concept)</strong>
+          <ul>
+            <li>1. Choose a blockchain network with low fees and good tooling.</li>
+            <li>2. Send funds to a public wallet controlled by a trusted project team.</li>
+            <li>3. Track all incoming funds and outgoing payments on-chain.</li>
+            <li>4. Route payments to Syrian engineers, evacuees, and training partners.</li>
+            <li>5. Publish periodic impact reports linking transactions to real outcomes.</li>
+          </ul>
+          <p style="margin-top: 6px;">
+            <em>
+              Note: The address above is a placeholder example. Any real donation program
+              should include full legal, tax, and compliance review in each jurisdiction.
+            </em>
+          </p>
+        </aside>
+      </div>
+    </section>
+
+    <!-- CONTACT / FOOTER -->
+    <footer id="contact" class="contact">
+      <div class="contact__links">
+        <span class="contact__pill">
+          Email: <a href="mailto:contact@example.com">contact@example.com</a>
+        </span>
+        <span class="contact__pill">
+          LinkedIn: <a href="#" aria-label="LinkedIn profile link">linkedin.com/in/iskandar</a>
+        </span>
+        <span class="contact__pill">
+          GitHub: <a href="#" aria-label="GitHub profile link">github.com/iskandar</a>
+        </span>
+      </div>
+      <div class="contact__note">
+        <strong>Collaborations & speaking</strong><br />
+        Open to collaborations around AI for social impact, blockchain-based funding models,
+        and initiatives connecting Japanese organizations with refugee and evacuee talent.
+      </div>
+    </footer>
+  </main>
+</body>
+</html>
